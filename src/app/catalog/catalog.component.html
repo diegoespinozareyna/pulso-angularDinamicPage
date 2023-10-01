@@ -1,0 +1,18 @@
+<section class="text-gray-600 body-font" *ngIf='products.length'>
+  <div class="container px-5 py-24 mx-auto">
+    <div class="flex flex-wrap -m-4">
+      <div *ngFor='let product of products' class="lg:w-1/4 md:w-1/2 p-4 w-full">
+        <a [routerLink]="['/catalog', product.name | replace:' ']" class="block relative h-48 rounded overflow-hidden">
+          <img alt="ecommerce" [src]='product.image_url' class="object-cover object-center w-full h-full block">
+        </a>
+        <div class="mt-4">
+          <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">{{ product.type }}</h3>
+          <a [routerLink]="['/catalog', product.name | replace:' ']">
+            <h2 class="text-gray-900 title-font text-lg font-medium">{{ product.name }}</h2>
+          </a>
+          <p class="mt-1">S/. {{ product.price }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
